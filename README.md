@@ -13,7 +13,10 @@ Welcome to the Kaschia's Introduction to Cryptography for Beginners! This compre
 
 ## How to Use This Tutorial
 
-Clone this repository and follow the instructions in each section to learn about cryptography step by step. 
+To use this tutorial, clone this repository and follow the instructions in each section to learn about cryptography step by step. 
 
 ```bash
 git clone https://github.com/yourusername/cryptography-basics-tutorial.git
+
+Thank you for visiting <3
+-Kaschia A. 
