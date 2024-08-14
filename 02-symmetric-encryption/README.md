@@ -1,20 +1,25 @@
-- **File**: `01-introduction/README.md`
-- **Content**:
-  - Provide an overview of cryptography, its history, and its importance.
-  - Explain basic concepts like encryption, decryption, and keys.
-  - Add simple examples or analogies to make it relatable.
+# Symmetric Encryption
 
+Symmetric encryption uses the same key for both encryption and decryption. It's fast and efficient, making it ideal for encrypting large amounts of data.
 
+### Example with Python
 
-```markdown
-# Introduction to Cryptography
+```python
+from Crypto.Cipher import AES
+import base64
 
-Cryptography is the art of securing information by transforming it into an unreadable format unless you have the key to decipher it. It has been used for centuries to protect sensitive data.
+def encrypt_message(key, raw):
+    cipher = AES.new(key, AES.MODE_ECB)
+    return base64.b64encode(cipher.encrypt(raw))
 
-In this tutorial, we will explore the basics of cryptography, including the difference between symmetric and asymmetric encryption, hashing, and digital signatures.
+def decrypt_message(key, enc):
+    cipher = AES.new(key, AES.MODE_ECB)
+    return cipher.decrypt(base64.b64decode(enc))
 
-### Key Concepts
+key = b'Sixteen byte key'
+message = b'Hello World!!!!!'
+encrypted = encrypt_message(key, message)
+decrypted = decrypt_message(key, encrypted)
 
-- **Encryption**: The process of converting plaintext into ciphertext.
-- **Decryption**: The process of converting ciphertext back into plaintext.
-- **Key**: A piece of information used in the encryption and decryption process.
+print(f'Encrypted: {encrypted}')
+print(f'Decrypted: {decrypted}')
